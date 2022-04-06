@@ -1,4 +1,4 @@
-name: valet-dev-testing/circle-demo/Example_Workflow
+name: environment_test
 on: workflow_dispatch
 jobs:
   Hello-World:
@@ -33,13 +33,13 @@ jobs:
       run: node -v
   Hold-For-Approval:
     environment:
-      name: staging
+      name: approval
     runs-on: ubuntu-latest
     needs:
     - Run-With-Node
     - I-Have-Code
     steps:
-    - run: echo "holding for approval"
+    - run: echo 'approved'
   Now-Complete:
     runs-on: ubuntu-latest
     container:
